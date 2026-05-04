@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shared Taste - A discovery-first music platform connecting users through shared music taste." />
+  <title>Shared Taste | Analog Music Discovery</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="atmosphere-layers">
+    <div class="atmosphere-layer" data-section="hero-scroll-track" style="opacity: 1;"></div>
+    <div class="atmosphere-layer" data-section="explore"></div>
+    <div class="atmosphere-layer" data-section="artists"></div>
+    <div class="atmosphere-layer" data-section="community"></div>
+    <div class="atmosphere-layer" data-section="playlists"></div>
+    <div class="atmosphere-layer" data-section="events"></div>
+  </div>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">Shared Taste</div>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#explore">Discovery</a></li>
+          <li><a href="#artists">Local Sounds</a></li>
+          <li><a href="#community">Shared Taste</a></li>
+          <li><a href="#playlists">Collections</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#events">Live & Analog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="hero-section" id="hero-scroll-track">
+      <div class="hero-sticky-container">
+        <canvas id="vinyl-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+          <h1 class="hero-headline">Discover the analogue soul of digital sound.</h1>
+          <p class="hero-subheadline">Discover listeners who hear music the way you do.</p>
+          <button class="primary-btn">Find Your Match</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Premium Stats Section -->
+    <section class="stats-section" id="stats-section">
+      <div class="container">
+        <div class="stats-glass-container">
+          <div class="stats-spotlight"></div>
+          <div class="stats-texture-grain"></div>
+          <div class="stats-texture-vinyl"></div>
+          
+          <div class="stats-card">
+            <div class="stat-block">
+              <span class="stat-value" id="stat-songs">0</span>
+              <label class="stat-label">Total Songs</label>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-block">
+              <span class="stat-value" id="stat-users">0</span>
+              <label class="stat-label">Total Users</label>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-block">
+              <span class="stat-value" id="stat-events">0</span>
+              <label class="stat-label">Upcoming Events</label>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-block">
+              <span class="stat-value" id="stat-match">0%</span>
+              <label class="stat-label">Avg Match</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore music by mood and genre -->
+    <section id="explore" class="editorial-section">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Curated by Mood & Genre</h2>
+          <p class="section-desc">Dive into hand-picked selections tailored to your current atmosphere.</p>
+          <div class="explore-controls">
+            <input type="text" id="song-search" placeholder="Search by title or artist..." class="search-input" />
+            <div class="mood-filters" id="mood-filters">
+              <button class="filter-btn active" data-mood="All">All</button>
+              <button class="filter-btn" data-mood="Relaxing">Relaxing</button>
+              <button class="filter-btn" data-mood="Upbeat">Upbeat</button>
+              <button class="filter-btn" data-mood="Calm">Calm</button>
+            </div>
+          </div>
+        </header>
+        <div class="grid-3" id="explore-grid">
+          <article class="card">
+            <img src="/images/jazz_album_cover_1777789599343.png" alt="Late Night Jazz Cover" class="card-image" />
+            <div class="card-content">
+              <h3 class="card-title">Late Night Jazz</h3>
+              <p class="card-meta">24 Tracks • Relaxing</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="/images/synthwave_album_cover_1777790168302.png" alt="Analog Synthwave Cover" class="card-image" />
+            <div class="card-content">
+              <h3 class="card-title">Analog Synthwave</h3>
+              <p class="card-meta">18 Tracks • Upbeat</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="/images/user_listening_portrait_1777790064096.png" alt="Acoustic Mornings Cover" class="card-image" />
+            <div class="card-content">
+              <h3 class="card-title">Acoustic Mornings</h3>
+              <p class="card-meta">32 Tracks • Calm</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Discover artists near your location -->
+    <section id="artists" class="editorial-section alt-bg">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Local Sounds</h2>
+          <p class="section-desc">Discover emerging artists right in your neighborhood.</p>
+          <div class="explore-controls">
+            <label class="toggle-switch">
+              <input type="checkbox" id="nearby-toggle">
+              <span class="slider"></span>
+            </label>
+            <span style="color: var(--text-muted); margin-left: 10px;">Nearby Only (&lt; 5km)</span>
+          </div>
+        </header>
+        <div class="grid-2" id="artists-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect with listeners who share your taste -->
+    <section id="community" class="editorial-section">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Shared Taste</h2>
+          <p class="section-desc">Connect with listeners whose collections mirror your own.</p>
+        </header>
+        <div class="grid-4">
+          <article class="user-card top-match-card">
+            <div class="avatar-wrapper">
+              <img src="/images/user_listening_portrait_1777790064096.png" alt="Marcus D." class="user-avatar-image" />
+              <div class="top-match-badge">Top Match</div>
+            </div>
+            <h3 class="user-name">Marcus D.</h3>
+            <p class="user-match">92% Match</p>
+            <p class="user-taste">Indie Rock • Ambient • Vinyl Collector</p>
+          </article>
+          <article class="user-card">
+            <div class="avatar-wrapper">
+              <img src="/images/indie_band_portrait_1777789692032.png" alt="Elena R." class="user-avatar-image" />
+            </div>
+            <h3 class="user-name">Elena R.</h3>
+            <p class="user-match">88% Match</p>
+            <p class="user-taste">Jazz • Soul • 70s Classics</p>
+          </article>
+          <article class="user-card">
+            <div class="avatar-wrapper">
+              <img src="/images/synthwave_album_cover_1777790168302.png" alt="Julian K." class="user-avatar-image" />
+            </div>
+            <h3 class="user-name">Julian K.</h3>
+            <p class="user-match">85% Match</p>
+            <p class="user-taste">Synthwave • Electronic • Lofi</p>
+          </article>
+          <article class="user-card">
+            <div class="avatar-wrapper">
+              <img src="/images/jazz_album_cover_1777789599343.png" alt="Sophie W." class="user-avatar-image" />
+            </div>
+            <h3 class="user-name">Sophie W.</h3>
+            <p class="user-match">81% Match</p>
+            <p class="user-taste">Acoustic • Folk • Live Sets</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Build collaborative playlists -->
+    <section id="playlists" class="editorial-section alt-bg">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Collaborative Collections</h2>
+          <p class="section-desc">Curate the perfect listening room experience together.</p>
+        </header>
+        <div class="grid-3">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="editorial-section">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Latest Reviews</h2>
+          <p class="section-desc">See what the community is saying about the tracks.</p>
+        </header>
+        <div class="grid-3" id="reviews-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Find nearby live events and listening sessions -->
+    <section id="events" class="editorial-section">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Live & Analog</h2>
+          <p class="section-desc">Join local listening sessions and intimate live performances.</p>
+        </header>
+        <div class="event-list" id="events-list">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Activity Log Section -->
+    <section id="activity-log" class="editorial-section alt-bg">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Community Activity</h2>
+          <p class="section-desc">See what listeners are discovering in real-time.</p>
+        </header>
+        <div class="activity-list" id="activity-list">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin Panel Section -->
+    <section id="admin-panel" class="editorial-section">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Admin Controls</h2>
+          <p class="section-desc">Manage the database: Insert, Update, and Delete.</p>
+        </header>
+        <div class="admin-grid">
+          <!-- Insert Song -->
+          <div class="admin-card">
+            <h3>Insert Song</h3>
+            <form id="form-insert-song" class="admin-form">
+              <input type="text" id="insert-title" placeholder="Title" required />
+              <input type="text" id="insert-artist" placeholder="Artist" required />
+              <input type="text" id="insert-genre" placeholder="Genre" required />
+              <input type="text" id="insert-mood" placeholder="Mood" required />
+              <input type="number" id="insert-duration" placeholder="Duration (sec)" required />
+              <button type="submit" class="secondary-btn">Add Song</button>
+            </form>
+            <p id="msg-insert-song" class="admin-feedback"></p>
+          </div>
+
+          <!-- Update User Taste -->
+          <div class="admin-card">
+            <h3>Update User Taste</h3>
+            <form id="form-update-user" class="admin-form">
+              <input type="text" id="update-user-name" placeholder="User Name" required />
+              <input type="text" id="update-taste-tags" placeholder="New Taste Tags" required />
+              <button type="submit" class="secondary-btn">Update</button>
+            </form>
+            <p id="msg-update-user" class="admin-feedback"></p>
+          </div>
+
+          <!-- Delete Song -->
+          <div class="admin-card">
+            <h3>Delete Song</h3>
+            <form id="form-delete-song" class="admin-form">
+              <input type="text" id="delete-song-title" placeholder="Song Title" required />
+              <button type="submit" class="secondary-btn">Delete Song</button>
+            </form>
+            <p id="msg-delete-song" class="admin-feedback"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Genre Stats Section -->
+    <section id="genre-stats" class="editorial-section alt-bg">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Genre Statistics</h2>
+          <p class="section-desc">Aggregated data across all songs and reviews.</p>
+        </header>
+        <div class="table-container">
+          <table class="data-table" id="genre-stats-table">
+            <thead>
+              <tr>
+                <th>Genre</th>
+                <th>Total Songs</th>
+                <th>Average Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SQL Showcase Section -->
+    <section id="sql-showcase" class="editorial-section">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title">Advanced SQL Demo</h2>
+          <p class="section-desc">Demonstrating specific queries like HAVING, CASE, IN, etc.</p>
+        </header>
+        <div class="sql-controls">
+          <button class="secondary-btn sql-btn" data-endpoint="having">HAVING Clause</button>
+          <button class="secondary-btn sql-btn" data-endpoint="orderby">ORDER BY Multiple</button>
+          <button class="secondary-btn sql-btn" data-endpoint="between">BETWEEN Operator</button>
+          <button class="secondary-btn sql-btn" data-endpoint="in">IN Operator</button>
+          <button class="secondary-btn sql-btn" data-endpoint="isnull">IS NULL Check</button>
+          <button class="secondary-btn sql-btn" data-endpoint="case">CASE Statement</button>
+        </div>
+        <div class="sql-results" id="sql-results" style="margin-top: 20px; padding: 20px; background: rgba(0,0,0,0.5); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); overflow-x: auto;">
+          <p style="color: var(--text-muted);">Select a query above to view results...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">Shared Taste</div>
+          <p class="footer-tagline">Discover listeners who hear music the way you do.</p>
+        </div>
+        <div class="footer-links">
+          <nav aria-label="Footer Navigation">
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Guidelines</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Shared Taste. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
